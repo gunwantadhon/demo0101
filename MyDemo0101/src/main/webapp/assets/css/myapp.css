@@ -1,2 +1,32 @@
 
 h1{color:red}
+
+
+html{
+	
+	width:100%; 
+}
+body{
+	
+	padding-top:70px; 
+	height:100%; 
+	
+}
+
+.wrapper{
+	
+	
+	min-height:100%;
+	position:relative;  
+}
+.content{
+	padding-bottom:60px; 
+	
+	}
+.footer{
+	
+	
+	position:absolute;
+	bottom:15px;
+	height:60px;   
+}

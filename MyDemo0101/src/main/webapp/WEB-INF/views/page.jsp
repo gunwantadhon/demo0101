@@ -18,51 +18,77 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MyInnoDent</title>
+    <title>${title}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./resources/css/bootstrap.css" rel="stylesheet">
     
     <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
     
+    <link href="./resources/css/bootstrap-readable-theme.css" rel="stylesheet">
    
 
     <!-- Custom styles for this template -->
     <link href="./resources/css/shop-homepage.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="./resources/css/myapp.css" rel="stylesheet">
+    
+    <%@include file="./shared/navbar.jsp"%>
+    
+    <script type="text/javascript">
+    window.menu='${title}';
+    window.contextRoot='${contextRoot}';
+    </script>
+
+
+
 
   </head>
 
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">InnoDent</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <!--  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      
+    </nav>-->
 
     <!-- Page Content -->
+    
+    <div class="content">
+    <c:if test="${userClickHome==true}">
+    <%@include file="home.jsp"%>
+    </c:if>
+    
+     <c:if test="${userClickAbout==true}">
+    <%@include file="about.jsp"%>
+    </c:if>
+    
+    
+     <c:if test="${userClickContact==true}">
+    <%@include file="contact.jsp"%>
+    </c:if>
+    
+    
+     <c:if test="${userClickAllProducts==true or userClickCategaryProducts==true}">
+    <%@include file="listProducts.jsp"%>
+    </c:if>
+    
+    <!-- loads only when user clicks show products -->
+     <c:if test="${userClickShowProduct==true}">
+    <%@include file="singleProduct.jsp"%>
+    </c:if>
+    
+    <!-- loads only when user clicks show manage products -->
+     <c:if test="${userClickManageProduct==true}">
+    <%@include file="managedProducts.jsp"%>
+    </c:if>
+    
+    
+    
+    </div>
+    
+    
     <div class="container">
 
       <div class="row">
@@ -231,7 +257,11 @@
     <script src="./resources/js/jquery.min.js"></script>
     <script src="./resources/js/popper.min.js"></script>
     <script src="./resources/js/bootstrap.min.js"></script>
-
+    
+    
+    
+    <!-- self code javascript -->
+<script src="./resources/js/myapp.js"></script>
   </body>
 
 </html>
